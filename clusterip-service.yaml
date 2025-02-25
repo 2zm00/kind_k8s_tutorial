@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: todo-app-internal
+spec:
+  type: ClusterIP
+  selector:
+    app: todo  # Deployment의 selector와 일치해야 합니다.
+  ports:
+    - protocol: TCP
+      port: 80      # 서비스 포트
+      targetPort: 8000  # Pod 컨테이너 포트
